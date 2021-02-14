@@ -39,20 +39,22 @@ export default function Home({ postList }) {
         <section className="mx-4 flex flex-col md:flex-row flex-wrap justify-center content-between">
           {
             data.map((post) => (
-              <div className="max-w-prose flex-initial w-full md:w-2/5 p-6 my-2 md:mx-4 border-2 border-yellow-500 border-opacity-25 cursor-pointer rounded-lg overflow-hidden hover:bg-yellow-500 hover:bg-opacity-30">
+              <div className="max-w-prose flex-initial w-full md:w-2/5 my-2 md:mx-4 border-2 border-yellow-500 border-opacity-25 cursor-pointer rounded-lg overflow-hidden hover:bg-yellow-500 hover:bg-opacity-30">
                 <Link href={`/posts/${post.id}`} key={post.id}>
                   <a>
-                    <h3 className="block mt-1 text-lg leading-tight font-medium test-black">{post.props.title}</h3>
-                    <p className="mt-2 text-gray-500">
-                      Author:
-                      {post.props.Author}
-                      <br className="mt-1" />
-                      Date:
-                      {post.props.Date}
-                      <br />
-                      Type:
-                      {post.props['性質']}
-                    </p>
+                    <div className="p-6">
+                      <h3 className="block mt-1 text-lg leading-tight font-medium test-black">{post.props.title}</h3>
+                      <p className="mt-2 text-gray-500">
+                        Author:
+                        {post.props.Author}
+                        <br className="mt-1" />
+                        Date:
+                        {post.props.Date}
+                        <br />
+                        Type:
+                        {post.props['性質']}
+                      </p>
+                    </div>
                   </a>
                 </Link>
               </div>
