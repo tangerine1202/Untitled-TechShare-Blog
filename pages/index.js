@@ -1,65 +1,66 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Link from 'next/link';
+// import styles from '../styles/Home.module.css';
+import { getPostList } from './api/posts';
+import Layout from '../components/layout';
 
-export default function Home() {
+export async function getStaticProps() {
+  const postList = getPostList();
+  return {
+    props: {
+      postList,
+    },
+  };
+}
+
+export default function Home({ postList }) {
+  const { total, data } = postList;
+
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Untitled TechShare Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <Layout>
+        <div className="px-4 h-screen flex flex-col justify-center">
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+          <h1 className="block md:block text-4xl md:text-6xl text-left md:text-center font-semibold">
+            <span className="block md:inline">Welcome to </span>
+            <span className="text-yellow-500">Untitled TechShare</span>
+          </h1>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <p className="mt-8 text-left md:text-center text-lg md:text-2xl text-gray-500 font-normal">
+            See the following content to learn more.
+          </p>
         </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+        <section className="mx-4 flex flex-col md:flex-row flex-wrap justify-center content-between">
+          {
+            data.map((post) => (
+              <div className="max-w-prose flex-initial w-full md:w-2/5 p-6 my-2 md:mx-4 border-2 border-yellow-500 border-opacity-25 cursor-pointer rounded-lg overflow-hidden hover:bg-yellow-500 hover:bg-opacity-30">
+                <Link href={`/posts/${post.id}`} key={post.id}>
+                  <a>
+                    <h3 className="block mt-1 text-lg leading-tight font-medium test-black">{post.props.title}</h3>
+                    <p className="mt-2 text-gray-500">
+                      Author:
+                      {post.props.Author}
+                      <br className="mt-1" />
+                      Date:
+                      {post.props.Date}
+                      <br />
+                      Type:
+                      {post.props['性質']}
+                    </p>
+                  </a>
+                </Link>
+              </div>
+            ))
+          }
+        </section>
+
+      </Layout>
     </div>
-  )
+  );
 }
