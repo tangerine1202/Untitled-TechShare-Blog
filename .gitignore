@@ -33,6 +33,8 @@ yarn-error.log*
 # vercel
 .vercel
 
+# vscode
+.vscode
 
 # TODO: upload public folder later
 /public/
