@@ -1,8 +1,10 @@
 import ReactMarkdown from 'react-markdown';
 
-export default function Markdown({ content }) {
+export default function Markdown({ content, className }) {
   return (
-    /* eslint-disable-next-line react/no-children-prop */
-    <ReactMarkdown children={content} className="prose sm:prose-sm xl:prose-lg mx-auto" />
+    <div>
+      {/* eslint-disable-next-line react/no-children-prop */}
+      <ReactMarkdown children={content} className={`${className} font-huninn prose prose-sm  md:prose lg:prose-lg mx-auto`} />
+    </div>
   );
 }

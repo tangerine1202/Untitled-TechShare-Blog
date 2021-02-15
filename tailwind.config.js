@@ -5,7 +5,11 @@ module.exports = {
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        huninn: ['jf-openhuninn'],
+      },
+    },
   },
   variants: {
     extend: {},

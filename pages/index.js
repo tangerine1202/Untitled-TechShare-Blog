@@ -24,7 +24,7 @@ export default function Home({ postList }) {
       </Head>
 
       <Layout>
-        <div className="px-4 h-screen flex flex-col justify-center">
+        <div className="font-huninn px-4 h-screen flex flex-col justify-center select-none">
 
           <h1 className="block md:block text-4xl md:text-6xl text-left md:text-center font-semibold">
             <span className="block md:inline">Welcome to </span>
@@ -39,11 +39,11 @@ export default function Home({ postList }) {
         <section className="mx-4 flex flex-col md:flex-row flex-wrap justify-center content-between">
           {
             data.map((post) => (
-              <div className="max-w-prose flex-initial w-full md:w-2/5 my-2 md:mx-4 border-2 border-yellow-500 border-opacity-25 cursor-pointer rounded-lg overflow-hidden hover:bg-yellow-500 hover:bg-opacity-30">
-                <Link href={`/posts/${post.id}`} key={post.id}>
+              <div key={post.id} className="max-w-prose flex-initial w-full md:w-2/5 my-2 md:mx-4 border-2 border-yellow-500 border-opacity-25 cursor-pointer rounded-lg overflow-hidden hover:bg-yellow-500 hover:bg-opacity-30">
+                <Link href={`/posts/${post.id}`}>
                   <a>
                     <div className="p-6">
-                      <h3 className="block mt-1 text-lg leading-tight font-medium test-black">{post.props.title}</h3>
+                      <h3 className="block mt-1 text-lg leading-tight font-medium text-black">{post.props.title}</h3>
                       <p className="mt-2 text-gray-500">
                         Author:
                         {post.props.Author}

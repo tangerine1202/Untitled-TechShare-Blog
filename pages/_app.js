@@ -1,4 +1,4 @@
-import 'tailwindcss/tailwind.css';
+import '../styles/styles.css';
 
 function MyApp({ Component, pageProps }) {
   // eslint-disable-next-line react/jsx-props-no-spreading
