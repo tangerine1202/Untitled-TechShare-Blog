@@ -1,6 +1,6 @@
 # Plug-in x Scheduling — How to be a cheater
 
-Author: @偉豪 洪 
+Author: @偉豪 洪
 Date: Oct 15, 2020
 備註: Please don't share with other people, or we will left no courts to use...
 性質: Tech Share
@@ -107,7 +107,7 @@ For example : flash — a plug-in that enable you to play some games~
 
 **結論：**可解決餓死的問題
 
-![Plug-in%20x%20Scheduling%20%E2%80%94%20How%20to%20be%20a%20cheater%20cddb9c6df59f47d9a0cd6c55573c7019.jpeg](Plug-in%20x%20Scheduling%20%E2%80%94%20How%20to%20be%20a%20cheater%20cddb9c6df59f47d9a0cd6c55573c7019.jpeg)
+![Plug-in%20x%20Scheduling%20%E2%80%94%20How%20to%20be%20a%20cheater%20cddb9c6df59f47d9a0cd6c55573c7019/bird.jpeg](Plug-in%20x%20Scheduling%20%E2%80%94%20How%20to%20be%20a%20cheater%20cddb9c6df59f47d9a0cd6c55573c7019/bird.jpeg)
 
 ---
 

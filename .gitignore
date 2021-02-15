@@ -36,5 +36,4 @@ yarn-error.log*
 # vscode
 .vscode
 
-# TODO: upload public folder later
-/public/
+# /public/

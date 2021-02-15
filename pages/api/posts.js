@@ -1,18 +1,16 @@
-import fs from 'fs'
-import path from 'path'
-import parseNotionMd from '../../lib/parseNotionMd'
+import fs from 'fs';
+import path from 'path';
+import parseNotionMd from '../../lib/parseNotionMd';
 
 const baseUrl = path.join(process.cwd(), 'posts');
 
 export function getPostIds() {
-  const fileNames = fs.readdirSync(baseUrl, 'utf-8').filter(path => path.endsWith('.md'))
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md/, '')
-      }
-    }
-  })
+  const fileNames = fs.readdirSync(baseUrl, 'utf-8').filter((fileName) => fileName.endsWith('.md'));
+  return fileNames.map((fileName) => ({
+    params: {
+      id: fileName.replace(/\.md/, ''),
+    },
+  }));
 }
 
 export function getPost(id) {
@@ -22,7 +20,7 @@ export function getPost(id) {
 }
 
 export function getPostList() {
-  const fileNames = fs.readdirSync(baseUrl, 'utf-8').filter(path => path.endsWith('.md'))
+  const fileNames = fs.readdirSync(baseUrl, 'utf-8').filter((fileName) => fileName.endsWith('.md'));
   const postList = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md/, '');
     const fullPath = path.join(baseUrl, fileName);
@@ -32,11 +30,11 @@ export function getPostList() {
     return {
       id,
       content: fileContent,
-      props: propsObj
-    }
-  })
+      props: propsObj,
+    };
+  });
   return {
     total: postList.length,
-    data: postList
-  }
+    data: postList,
+  };
 }
