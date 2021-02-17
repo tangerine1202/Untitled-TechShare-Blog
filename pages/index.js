@@ -27,14 +27,19 @@ class Home extends React.Component {
     const { total, data } = postList;
 
     return (
-      <div>
+      <div className={isDarkMode ? 'dark' : 'light'}>
         <Head>
           <title>Untitled TechShare Blog</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <Layout>
-          <div className={`${isDarkMode ? 'bg-black' : ''} font-huninn px-4 h-screen flex flex-col justify-center select-none`}>
+          <div className="font-huninn px-4 h-screen flex flex-col justify-center select-none">
+
+            <div>
+              <span className="text-yellow-500 dark:text-purple-500">Dark Mode</span>
+              <input type="checkbox" onClick={() => this.setState({ isDarkMode: !isDarkMode })} />
+            </div>
 
             <h1 className="block md:block text-4xl md:text-6xl text-left md:text-center font-semibold">
               <span className="block md:inline">Welcome to </span>
@@ -44,13 +49,6 @@ class Home extends React.Component {
             <p className="mt-8 text-left md:text-center text-lg md:text-2xl text-gray-500 font-normal">
               See the following content to learn more.
             </p>
-            <button
-              type="button"
-              className="border border-black"
-              onClick={() => this.setState({ isDarkMode: !isDarkMode })}
-            >
-              dark mode
-            </button>
           </div>
 
           <section className="mx-4 flex flex-col md:flex-row flex-wrap justify-center content-between">
