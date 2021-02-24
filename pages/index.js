@@ -21,27 +21,35 @@ class Home extends React.Component {
     };
   }
 
+  darkModeToggle() {
+    const { isDarkMode } = this.state;
+
+    return (
+      <div className="flex justify-end items-center p-8">
+        <label htmlFor="darkModeToggle">
+          <div className="flex items-center bg-gray-300 rounded-full w-12 h-6 p-1">
+            <div className={`bg-white rounded-full shadow-md w-5 h-5 transform duration-300 ease-in-out ${isDarkMode && 'translate-x-5'}`} />
+          </div>
+          <input id="darkModeToggle" type="checkbox" className="hidden" onClick={() => this.setState({ isDarkMode: !isDarkMode })} />
+        </label>
+      </div>
+    );
+  }
+
   render() {
     const { postList } = this.props;
     const { isDarkMode } = this.state;
     const { total, data } = postList;
 
     return (
-      <div className={`transform duration-300 ${isDarkMode && 'dark bg-gray-800'}`}>
+      <div className={`transform duration-300 ease-in-out ${isDarkMode && 'dark bg-gray-800'}`}>
         <Head>
           <title>Untitled TechShare Blog</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <Layout>
-          <div className="flex justify-end items-center p-8">
-            <label htmlFor="darkModeToggle">
-              <div className="flex items-center bg-gray-300 rounded-full w-12 h-6 p-1">
-                <div className={`bg-white rounded-full shadow-md w-5 h-5 transform duration-300 ease-in-out ${isDarkMode && 'translate-x-5'}`} />
-              </div>
-              <input id="darkModeToggle" type="checkbox" className="hidden" onClick={() => this.setState({ isDarkMode: !isDarkMode })} />
-            </label>
-          </div>
+          {this.darkModeToggle()}
 
           <div className="font-huninn px-4 h-screen flex flex-col justify-center select-none">
 
