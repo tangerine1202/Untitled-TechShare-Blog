@@ -25,7 +25,7 @@ class Home extends React.Component {
     const { isDarkMode } = this.state;
 
     return (
-      <div className="flex justify-end items-center p-8">
+      <div className="absolute self-end top-4 md:top-6">
         <label htmlFor="darkModeToggle">
           <div className="flex items-center bg-gray-300 rounded-full w-12 h-6 p-1">
             <div className={`bg-white rounded-full shadow-md w-5 h-5 transform duration-300 ease-in-out ${isDarkMode && 'translate-x-5'}`} />
@@ -49,9 +49,8 @@ class Home extends React.Component {
         </Head>
 
         <Layout>
-          {this.darkModeToggle()}
-
           <div className="font-huninn px-4 h-screen flex flex-col justify-center select-none">
+            {this.darkModeToggle()}
 
             <h1 className="block md:block text-4xl md:text-6xl text-left md:text-center font-semibold">
               <span className="block md:inline dark:text-white transition-colors duration-300">Welcome to </span>
